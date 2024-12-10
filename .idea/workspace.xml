@@ -4,44 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3048e8fd-a730-4225-9ce6-d610e727d0a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/BaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/EasyCalculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/FunctionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/HardCalculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/HistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ControllerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/CalculationHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/CalculationResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/EasyCalculationResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/FunctionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/HardCalculationResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/NavigationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/EasyCalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/EasyCalculatorServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/FunctionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/FunctionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/HardCalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/HardCalculatorServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ServiceLocator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/EasyCalculatorView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/FunctionView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/HardCalculatorView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/HistoryView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/MainView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/View/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/Service/EasyCalculatorServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/Service/FunctionServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/Service/HardCalculatorServiceImplTest.java" afterDir="false" />
+    <list default="true" id="3048e8fd-a730-4225-9ce6-d610e727d0a0" name="Changes" comment="Project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/FunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/FunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/FunctionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/FunctionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service/FunctionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/FunctionServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,10 +86,24 @@
       <workItem from="1733738350638" duration="6799000" />
       <workItem from="1733747508281" duration="10575000" />
       <workItem from="1733782907427" duration="777000" />
+      <workItem from="1733845784950" duration="2971000" />
     </task>
+    <task id="LOCAL-00001" summary="Project">
+      <option name="closed" value="true" />
+      <created>1733845864164</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733845864164</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project" />
   </component>
 </project>

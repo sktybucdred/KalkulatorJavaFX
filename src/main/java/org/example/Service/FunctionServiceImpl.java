@@ -48,8 +48,6 @@ public class FunctionServiceImpl implements FunctionService {
                 }
                 double roundedValue = Math.round(y * 100.0) / 100.0;
                 results.add(roundedValue);
-
-                // Dodanie obliczenia do historii
                 CalculationResult calculationResult = new HardCalculationResult(function + " with x=" + x, roundedValue);
                 calculationHistory.addCalculationResult(calculationResult);
             } catch (ArithmeticException | IllegalArgumentException e) {

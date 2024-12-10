@@ -1,11 +1,14 @@
 package org.example.Controller;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.shape.Circle;
 import org.example.Model.FunctionModel;
 import org.example.Service.FunctionService;
 
@@ -46,11 +49,11 @@ public class FunctionController extends BaseController {
     private void initialize() {
         setupChart();
         setupFunctionListView();
-        removeButton.setDisable(true); // Początkowo przycisk usuwania jest wyłączony
+        removeButton.setDisable(true);
     }
 
     private void setupChart() {
-        functionChart.setCreateSymbols(false); // Wyłączenie punktów na wykresie mozna zmienic pozniej na true
+        functionChart.setCreateSymbols(true);
     }
 
     private void setupFunctionListView() {
@@ -105,7 +108,7 @@ public class FunctionController extends BaseController {
             functions.add(functionModel);
             functionListView.getItems().add(functionModel.getName());
             errorLabel.setText("");
-            functionField.clear(); // Opcjonalnie: wyczyść pole funkcji po dodaniu
+            functionField.clear();
         } catch (IllegalArgumentException e) {
             errorLabel.setText(e.getMessage());
             functionChart.getData().clear();
@@ -116,10 +119,7 @@ public class FunctionController extends BaseController {
     }
 
     private void plotFunction(FunctionModel functionModel, List<Double> points, double minX, double step) {
-        // Lista sub-serii, które będziemy dodawać do wykresu
         List<XYChart.Series<Number, Number>> subSeriesList = new ArrayList<>();
-
-        // Tworzymy pierwszą serię
         XYChart.Series<Number, Number> currentSeries = new XYChart.Series<>();
         currentSeries.setName(functionModel.getName() + " Part 1");
         subSeriesList.add(currentSeries);
@@ -128,10 +128,7 @@ public class FunctionController extends BaseController {
         int subSeriesCount = 1;
 
         for (Double y : points) {
-            // Sprawdzenie czy wartość y jest poprawna
             if (Double.isNaN(y) || Double.isInfinite(y)) {
-                // Jeśli y jest nieokreślony, kończymy aktualną serię (tylko jeśli zawiera dane)
-                // i rozpoczynamy nową
                 if (!currentSeries.getData().isEmpty()) {
                     currentSeries = new XYChart.Series<>();
                     subSeriesCount++;
@@ -139,37 +136,59 @@ public class FunctionController extends BaseController {
                     subSeriesList.add(currentSeries);
                 }
             } else {
-                // Dodajemy poprawny punkt do aktualnej serii
                 XYChart.Data<Number, Number> dataPoint = new XYChart.Data<>(x, y);
-
-                // Dodawanie tooltipa
-                dataPoint.nodeProperty().addListener((observable, oldNode, newNode) -> {
-                    if (newNode != null) {
-                        Tooltip tooltip = new Tooltip("x: " + dataPoint.getXValue() + ", y: " + dataPoint.getYValue());
-                        Tooltip.install(newNode, tooltip);
-                    }
-                });
-
+                // Tworzymy węzeł symbolu
+                Circle circle = new Circle(5);
+                circle.setStyle("-fx-fill: red;");
+                // Upewniamy się, że węzeł reaguje na mysz
+                circle.setMouseTransparent(false);
+                circle.setPickOnBounds(true);
+                dataPoint.setNode(circle);
                 currentSeries.getData().add(dataPoint);
             }
-
             x += step;
         }
 
-        // Dodajemy sub-serie do wykresu, pomijając puste
         for (XYChart.Series<Number, Number> series : subSeriesList) {
             if (!series.getData().isEmpty()) {
                 functionChart.getData().add(series);
+                functionModel.addSubSeries(series);
             }
         }
+
+        // Wymuszamy przeliczenie stylów i układu po dodaniu wszystkich danych
+        Platform.runLater(() -> {
+            functionChart.applyCss();
+            functionChart.layout();
+
+            for (XYChart.Series<Number, Number> series : functionModel.getSubSeriesList()) {
+                for (XYChart.Data<Number, Number> data : series.getData()) {
+                    Node node = data.getNode();
+                    if (node != null) {
+                        Tooltip tooltip = new Tooltip("x: " + data.getXValue() + "\ny: " + data.getYValue());
+                        // Zamiast Tooltip.install, sterujemy ręcznie wyświetlaniem, aby mieć pewność
+                        node.setOnMouseEntered(e -> {
+                            // Wyświetlamy tooltip ręcznie w miejscu kursora
+                            tooltip.show(node, e.getScreenX() + 10, e.getScreenY() + 10);
+                        });
+                        node.setOnMouseExited(e -> tooltip.hide());
+                    }
+                }
+            }
+        });
     }
+
+
 
     @FXML
     private void handleRemoveFunction() {
         int selectedIndex = functionListView.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             FunctionModel functionToRemove = functions.get(selectedIndex);
-            functionChart.getData().remove(functionToRemove.getSeries());
+            // Usuwamy wszystkie subserii należące do tej funkcji
+            for (XYChart.Series<Number, Number> s : functionToRemove.getSubSeriesList()) {
+                functionChart.getData().remove(s);
+            }
             functions.remove(selectedIndex);
             functionListView.getItems().remove(selectedIndex);
             errorLabel.setText("");

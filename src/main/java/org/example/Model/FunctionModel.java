@@ -2,16 +2,18 @@ package org.example.Model;
 
 import javafx.scene.chart.XYChart;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FunctionModel {
     private String name;
     private String expression;
-    private XYChart.Series<Number, Number> series;
+    private List<XYChart.Series<Number, Number>> subSeriesList = new ArrayList<>();
 
     public FunctionModel(String name, String expression) {
         this.name = name;
         this.expression = expression;
-        this.series = new XYChart.Series<>();
-        this.series.setName(name);
+        this.subSeriesList = new ArrayList<>();
     }
 
     public String getName() {
@@ -22,8 +24,12 @@ public class FunctionModel {
         return expression;
     }
 
-    public XYChart.Series<Number, Number> getSeries() {
-        return series;
+    public List<XYChart.Series<Number, Number>> getSubSeriesList() {
+        return subSeriesList;
+    }
+
+    public void addSubSeries(XYChart.Series<Number, Number> series) {
+        subSeriesList.add(series);
     }
 }
 
