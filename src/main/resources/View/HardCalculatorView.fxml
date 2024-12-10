@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.Controller.HardCalculatorController"
+      spacing="10" alignment="CENTER">
+    <TextField fx:id="expressionField" promptText="Operand 1"/>
+    <Button text="Oblicz" onAction="#calculate"/>
+    <TextField fx:id="resultField" editable="false" promptText="Wynik"/>
+    <Button text="Wróć do menu głównego" onAction="#goBackToMainMenu"/>
+</VBox>

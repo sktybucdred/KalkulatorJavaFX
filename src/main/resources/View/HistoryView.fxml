@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.Controller.HistoryController"
+      spacing="10" alignment="CENTER">
+    <TableView fx:id="historyTableView" prefWidth="600" prefHeight="400">
+        <columns>
+            <TableColumn text="Wyrażenie" fx:id="expressionColumn" prefWidth="400"/>
+            <TableColumn text="Wynik" fx:id="resultColumn" prefWidth="200"/>
+        </columns>
+    </TableView>
+    <HBox spacing="10">
+        <Button text="Wróć do menu głównego" onAction="#goBackToMainMenu"/>
+        <Button text="Wyczyść historię" onAction="#clearHistory"/>
+    </HBox>
+</VBox>

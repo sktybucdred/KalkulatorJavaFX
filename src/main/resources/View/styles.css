@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Ogólne style dla przycisków */
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}
+
+/* Style dla pól tekstowych */
+.text-field {
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+
+/* Style dla listy funkcji */
+.list-view {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4px;
+}
+
+/* Style dla etykiet błędów */
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}
+
+/* Stylizacja wykresu */
+.chart-legend {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-padding: 10px;
+    -fx-font-size: 12px;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Stylizacja osi */
+.number-axis .axis-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333;
+}
+
+.number-axis .axis-line {
+    -fx-stroke: #333;
+}
+
+.number-axis .tick-mark {
+    -fx-stroke: #333;
+}

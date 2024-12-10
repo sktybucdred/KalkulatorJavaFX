@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.Controller.EasyCalculatorController"
+      spacing="10" alignment="CENTER">
+    <TextField fx:id="operand1Field" promptText="Operand 1"/>
+    <TextField fx:id="operand2Field" promptText="Operand 2"/>
+    <TextField fx:id="operationField" promptText="Operator (+, -, *, /)"/>
+    <Button text="Oblicz" onAction="#calculate"/>
+    <TextField fx:id="resultField" editable="false" promptText="Wynik"/>
+    <Button text="Wróć do menu głównego" onAction="#goBack"/>
+</VBox>
